@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Titlescreen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://Other/GradientBG.png" type="Texture" id=2]
+[ext_resource path="res://Wumpus/wumpusstatic.png" type="Texture" id=3]
+[ext_resource path="res://Other/hungry-v1/Hungry.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Titlescreen/font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Titlescreen/start.wav" type="AudioStream" id=6]
+[ext_resource path="res://Titlescreen/mute.wav" type="AudioStream" id=7]
+[ext_resource path="res://Titlescreen/quit.wav" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 75
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 320, 240 )
+texture = ExtResource( 2 )
+
+[node name="Wumpus" type="CenterContainer" parent="."]
+editor/display_folded = true
+margin_left = 320.0
+margin_top = 90.0
+margin_right = 360.0
+margin_bottom = 130.0
+
+[node name="wumpusstatic" type="Sprite" parent="Wumpus"]
+modulate = Color( 0, 0, 0, 0.415686 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Title1" type="CenterContainer" parent="."]
+editor/display_folded = true
+margin_left = 220.0
+margin_top = 30.0
+margin_right = 451.0
+margin_bottom = 99.0
+
+[node name="Label" type="Label" parent="Title1"]
+margin_right = 231.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 1 )
+text = "WUMPUS "
+align = 1
+valign = 1
+
+[node name="Title2" type="CenterContainer" parent="."]
+editor/display_folded = true
+margin_left = 246.0
+margin_top = 99.0
+margin_right = 411.0
+margin_bottom = 168.0
+
+[node name="Label" type="Label" parent="Title2"]
+margin_right = 165.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 1 )
+text = "QUEST"
+align = 1
+valign = 1
+
+[node name="Buttons" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -250.0
+margin_right = 72.0
+margin_bottom = -50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+editor/display_folded = true
+margin_left = 6.0
+margin_top = 29.0
+margin_right = 135.0
+margin_bottom = 171.0
+custom_constants/separation = 20
+
+[node name="Start" type="Button" parent="Buttons/VBoxContainer"]
+margin_right = 129.0
+margin_bottom = 34.0
+focus_neighbour_top = NodePath("../Quit")
+focus_neighbour_bottom = NodePath("../Mute")
+focus_next = NodePath("../Mute")
+focus_previous = NodePath("../Quit")
+custom_fonts/font = ExtResource( 5 )
+text = "START"
+flat = true
+
+[node name="Mute" type="Button" parent="Buttons/VBoxContainer"]
+margin_top = 54.0
+margin_right = 129.0
+margin_bottom = 88.0
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Start")
+custom_fonts/font = ExtResource( 5 )
+text = "SOUND: ON"
+flat = true
+
+[node name="Quit" type="Button" parent="Buttons/VBoxContainer"]
+margin_top = 108.0
+margin_right = 129.0
+margin_bottom = 142.0
+focus_neighbour_top = NodePath("../Mute")
+focus_neighbour_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Mute")
+custom_fonts/font = ExtResource( 5 )
+text = "QUIT"
+flat = true
+
+[node name="signature" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -110.0
+margin_top = -20.0
+margin_right = -2.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+text = "By WatDowTal"
+align = 1
+valign = 1
+
+[node name="fade" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 490, 490 )
+scale = Vector2( 0.485352, 490.5 )
+texture = SubResource( 4 )
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+autoplay = "fadein"
+anims/fadein = SubResource( 5 )
+anims/fadeout = SubResource( 6 )
+
+[node name="StartNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="UnmuteNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="QuitNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+[connection signal="pressed" from="Buttons/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Mute" to="." method="_on_Mute_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="animation_finished" from="Fade" to="." method="_on_Fade_animation_finished"]
+[connection signal="finished" from="QuitNoise" to="." method="_on_QuitNoise_finished"]

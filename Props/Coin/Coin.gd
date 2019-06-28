@@ -1,0 +1,17 @@
+extends Area2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+# Called when the node enters the scene tree for the first time.
+func _process(delta):
+	for body in get_overlapping_bodies():
+		if body.name == "Wumpus":
+			collect()
+
+func collect():
+	stats.update_score()
+	$Collect.play()
+	hide()
+	$CollisionShape2D.disabled = true

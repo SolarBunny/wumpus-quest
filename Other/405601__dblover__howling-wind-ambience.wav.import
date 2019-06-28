@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/405601__dblover__howling-wind-ambience.wav-03bc919c4fd10d69282d207105b2548b.sample"
+
+[deps]
+
+source_file="res://Other/405601__dblover__howling-wind-ambience.wav"
+dest_files=[ "res://.import/405601__dblover__howling-wind-ambience.wav-03bc919c4fd10d69282d207105b2548b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

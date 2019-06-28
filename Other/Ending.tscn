@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Other/Ending.gd" type="Script" id=1]
+[ext_resource path="res://Titlescreen/font.tres" type="DynamicFont" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="Ending" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Black" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -90.0
+margin_right = 254.0
+margin_bottom = -31.0
+
+[node name="Label" type="Label" parent="Text"]
+margin_left = 19.0
+margin_right = 474.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 2 )
+text = "This is just a little demo of what 
+I might finish."
+align = 1
+valign = 1
+
+[node name="Text2" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -35.0
+margin_right = 182.0
+margin_bottom = 15.0
+
+[node name="Label" type="Label" parent="Text2"]
+margin_left = 58.0
+margin_top = 11.0
+margin_right = 305.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 2 )
+text = "Thanks for playing!"
+align = 1
+valign = 1
+
+[node name="Score" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -370.0
+margin_top = 100.0
+margin_right = -6.0
+margin_bottom = 150.0
+
+[node name="Label" type="Label" parent="Score"]
+margin_left = 182.0
+margin_top = 11.0
+margin_right = 182.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="Score2" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = 100.0
+margin_right = 354.0
+margin_bottom = 150.0
+
+[node name="Label" type="Label" parent="Score2"]
+margin_left = 182.0
+margin_top = 15.0
+margin_right = 182.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = 40.0
+margin_right = 40.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT"
+flat = true
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
